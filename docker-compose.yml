@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+    container_name: moodle-web
+    ports:
+      - "80:80"
+    volumes:
+      - ./moodle:/var/www/html/moodle
+      - ./moodledata:/var/www/moodledata
+    environment:
+      - APACHE_RUN_USER=www-data
+      - APACHE_RUN_GROUP=www-data
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: mysql:5.7
+    container_name: moodle-db
+    restart: always
+    environment:
+      MYSQL_DATABASE: u499940289_lmsmoodle
+      MYSQL_USER: u499940289_LmSMooDlEs
+      MYSQL_PASSWORD: LmsMooDlES@2024
+      MYSQL_ROOT_PASSWORD: mysql123
+    volumes:
