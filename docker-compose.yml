@@ -28,7 +28,7 @@ services:
       MYSQL_ROOT_PASSWORD: mysql123
     volumes:
       - db_data:/var/lib/mysql
-      - ./db/u499940289_lmsmoodle.sql:/docker-entrypoint-initdb.d  # This mounts your SQL file(s) for auto-import
+      - ./db/u499940289_lmsmoodle.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   db_data:
