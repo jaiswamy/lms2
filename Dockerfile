@@ -1,3 +1,9 @@
+FROM php:8.2-apache
+# Install required system packages
+RUN apt-get update && apt-get install -y \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
     libxml2-dev \
     libzip-dev \
     unzip \
