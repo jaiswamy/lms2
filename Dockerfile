@@ -1,10 +1,3 @@
-FROM php:8.0-apache
-
-# Install required system packages
-RUN apt-get update && apt-get install -y \
-    libpng-dev \
-    libjpeg62-turbo-dev \
-    libfreetype6-dev \
     libxml2-dev \
     libzip-dev \
     unzip \
@@ -18,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 
 # Enable Apache rewrite module
 RUN a2enmod rewrite
+WORKDIR /var/www/html/moodle/
 RUN echo '<Directory /var/www/html>\n\
     Options Indexes FollowSymLinks\n\
     AllowOverride All\n\
@@ -26,10 +20,10 @@ RUN echo '<Directory /var/www/html>\n\
     && a2enconf moodle
 
 # Copy source files
-COPY ./moodle /var/www/html/moodle/
+COPY ./lms2 /var/www/html/moodle/
+COPY ./moodledata /var/www/moodledata/
 
 # Set proper permissions
-RUN chown -R www-data:www-data /var/www/html/moodle/
+RUN chown -R www-data:www-data /var/www/html /var/www/moodledata && \
+    chmod -R 755 /var/www/html /var/www/moodledata
 
-# Set working directory
-WORKDIR /var/www/html/moodle/
