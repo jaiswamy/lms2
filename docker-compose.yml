@@ -8,7 +8,7 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./moodle:/var/www/html
+      - ./lms2:/var/www/html
       - ./moodledata:/var/www/moodledata
     environment:
       - APACHE_RUN_USER=www-data
@@ -27,3 +27,8 @@ services:
       MYSQL_PASSWORD: LmsMooDlES@2024
       MYSQL_ROOT_PASSWORD: mysql123
     volumes:
+      - db_data:/var/lib/mysql
+      - ./db/u499940289_lmsmoodle.sql:/docker-entrypoint-initdb.d  # This mounts your SQL file(s) for auto-import
+
+volumes:
+  db_data:
