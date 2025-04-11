@@ -19,7 +19,7 @@ $CFG->dboptions = array (
 );
 
 $CFG->wwwroot   = 'https://lms.hiideals.com';
-$CFG->dataroot  = '/home/u499940289/domains/hiideals.com/public_html/moodledata';
+$CFG->dataroot  = '/var/www/moodledata';
 $CFG->admin     = 'admin';
 
 $CFG->directorypermissions = 0777;
