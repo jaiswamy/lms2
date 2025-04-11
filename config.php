@@ -6,7 +6,7 @@ $CFG = new stdClass();
 
 $CFG->dbtype    = 'mariadb';
 $CFG->dblibrary = 'native';
-$CFG->dbhost    = 'localhost';
+$CFG->dbhost    = 'db';
 $CFG->dbname    = 'u499940289_lmsmoodle';
 $CFG->dbuser    = 'u499940289_LmSMooDlEs';
 $CFG->dbpass    = 'LmsMooDlES@2024';
